@@ -25,7 +25,7 @@ gui.elements = {
       custom_toggle = checkbox:new(false, get_hash(plugin_label .. "_costum_toggle")),
       armorsTree = tree_node:new(1),
       jewerlyTree = tree_node:new(1),
-      wepeonsTree = tree_node:new(1),
+      weaponsTree = tree_node:new(1),
       oneHandedTree = tree_node:new(1),
       twoHandedTree = tree_node:new(1),
       offHandsTree = tree_node:new(1),
@@ -49,7 +49,7 @@ gui.elements = {
          legendary_focus_slider = slider_int:new(0, 3, 2, get_hash(plugin_label .. "_legendary_focus_slider")),
          legendary_totem_slider = slider_int:new(0, 3, 2, get_hash(plugin_label .. "_legendary_totem_slider")),
       
-         --wepeons
+         --weapons
          --1h
          legendary_1h_mace_slider = slider_int:new(0, 3, 2, get_hash(plugin_label .. "_legendary_1h_mace_slider")),
          legendary_1h_sword_slider = slider_int:new(0, 3, 2, get_hash(plugin_label .. "_legendary_1h_sword_slider")),
