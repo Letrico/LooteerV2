@@ -153,25 +153,25 @@ function ItemManager.check_want_item(item, ignore_distance)
          foundOn = 'chest'
       elseif ItemLogic.is_unique_chest(item) and Settings.get().custom_toggle == true then
          required_ga_count = settings.unique_chest_ga_count
-         foundOn = 'chest'
+         foundOn = 'uniqueChest'
       elseif ItemLogic.is_legendary_gloves(item) and Settings.get().custom_toggle == true then
          required_ga_count = settings.legendary_gloves_ga_count
          foundOn = 'gloves'
       elseif ItemLogic.is_unique_gloves(item) and Settings.get().custom_toggle == true then
          required_ga_count = settings.unique_gloves_ga_count
-         foundOn = 'gloves'
+         foundOn = 'uniqueGloves'
       elseif ItemLogic.is_legendary_pants(item) and Settings.get().custom_toggle == true then
          required_ga_count = settings.legendary_pants_ga_count
          foundOn = 'pants'
       elseif ItemLogic.is_unique_pants(item) and Settings.get().custom_toggle == true then
          required_ga_count = settings.unique_pants_ga_count
-         foundOn = 'pants'
+         foundOn = 'uniquePants'
       elseif ItemLogic.is_legendary_boots(item) and Settings.get().custom_toggle == true then
          required_ga_count = settings.legendary_boots_ga_count
          foundOn = 'boots'
       elseif ItemLogic.is_unique_boots(item) and Settings.get().custom_toggle == true then
          required_ga_count = settings.unique_boots_ga_count
-         foundOn = 'boots'
+         foundOn = 'uniqueBoots'
       
       --offhand
       elseif ItemLogic.is_legendary_focus(item) and Settings.get().custom_toggle == true then
