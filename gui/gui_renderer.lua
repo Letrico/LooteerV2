@@ -114,6 +114,10 @@ function gui_renderer:render()
                   "Minimum GA's to consider picking up legendary bows")
                mainGui.elements.affix_settings.legendary_crossbow_slider:render("Legendary Crossbow GA Count",
                   "Minimum GA's to consider picking up legendary crossbows")
+               mainGui.elements.affix_settings.legendary_glaive_slider:render("Legendary Glaive GA Count",
+                  "Minimum GA's to consider picking up legendary glaive")
+               mainGui.elements.affix_settings.legendary_quarterstaff_slider:render("Legendary Quarterstaff GA Count",
+                  "Minimum GA's to consider picking up legendary quarterstaff")
                mainGui.elements.affix_settings.unique_2h_mace_slider:render("Unique 2H Mace GA Count",
                   "Minimum GA's to consider picking up unique 2H maces")
                mainGui.elements.affix_settings.unique_2h_axe_slider:render("Unique 2H Axe GA Count",
@@ -128,6 +132,10 @@ function gui_renderer:render()
                   "Minimum GA's to consider picking up unique bows")
                mainGui.elements.affix_settings.unique_crossbow_slider:render("Unique Crossbow GA Count",
                   "Minimum GA's to consider picking up unique crossbows")
+               mainGui.elements.affix_settings.unique_glaive_slider:render("Unique Glaive GA Count",
+                  "Minimum GA's to consider picking up unique glaive")
+               mainGui.elements.affix_settings.unique_quarterstaff_slider:render("Unique Quarterstaff GA Count",
+                  "Minimum GA's to consider picking up unique quarterstaff")
                mainGui.elements.affix_settings.twoHandedTree:pop()
             end
             if mainGui.elements.affix_settings.offHandsTree:push("OffHands") then

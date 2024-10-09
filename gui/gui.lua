@@ -69,6 +69,8 @@ gui.elements = {
          legendary_staff_slider = slider_int:new(0, 3, 2, get_hash(plugin_label .. "_legendary_staff_slider")),
          legendary_bow_slider = slider_int:new(0, 3, 2, get_hash(plugin_label .. "_legendary_bow_slider")),
          legendary_crossbow_slider = slider_int:new(0, 3, 2, get_hash(plugin_label .. "_legendary_crossbow_slider")),
+         legendary_glaive_slider = slider_int:new(0, 3, 2, get_hash(plugin_label .. "_legendary_glaive_slider")),
+         legendary_quarterstaff_slider = slider_int:new(0, 3, 2, get_hash(plugin_label .. "_legendary_quarterstaff_slider")),
          unique_2h_mace_slider = slider_int:new(0, 4, 2, get_hash(plugin_label .. "_unique_2h_mace_slider")),
          unique_2h_sword_slider = slider_int:new(0, 4, 2, get_hash(plugin_label .. "_unique_2h_sword_slider")),
          unique_2h_axe_slider = slider_int:new(0, 4, 2, get_hash(plugin_label .. "_unique_2h_axe_slider")),
@@ -76,6 +78,8 @@ gui.elements = {
          unique_staff_slider = slider_int:new(0, 4, 2, get_hash(plugin_label .. "_unique_staff_slider")),
          unique_bow_slider = slider_int:new(0, 4, 2, get_hash(plugin_label .. "_unique_bow_slider")),
          unique_crossbow_slider = slider_int:new(0, 4, 2, get_hash(plugin_label .. "_unique_crossbow_slider")),
+         unique_glaive_slider = slider_int:new(0, 4, 2, get_hash(plugin_label .. "_unique_glaive_slider")),
+         unique_quarterstaff_slider = slider_int:new(0, 4, 2, get_hash(plugin_label .. "_unique_quarterstaff_slider")),
          
       --ubers
       uber_unique_greater_affix_slider = slider_int:new(0, 4, 0,get_hash(plugin_label .. "_uber_unique_greater_affix_slider")),

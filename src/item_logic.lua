@@ -143,6 +143,14 @@ function ItemLogic.is_legendary_amulet(item)
     local item_info = item:get_item_info()
     return item_info:get_rarity() == 5 and item_info:get_skin_name():find("Crossbow")
  end
+ function ItemLogic.is_legendary_glaive(item)
+    local item_info = item:get_item_info()
+    return item_info:get_rarity() == 5 and item_info:get_skin_name():find("Glaive")
+ end
+ function ItemLogic.is_legendary_quarterstaff(item)
+    local item_info = item:get_item_info()
+    return item_info:get_rarity() == 5 and item_info:get_skin_name():find("Quarterstaff")
+ end
  function ItemLogic.is_unique_2h_mace(item)
     local item_info = item:get_item_info()
     return item_info:get_rarity() == 6 and item_info:get_skin_name():find("Mace")
@@ -171,6 +179,14 @@ function ItemLogic.is_legendary_amulet(item)
     local item_info = item:get_item_info()
     return item_info:get_rarity() == 6 and item_info:get_skin_name():find("Crossbow")
  end
+ function ItemLogic.is_unique_glaive(item)
+   local item_info = item:get_item_info()
+   return item_info:get_rarity() == 6 and item_info:get_skin_name():find("Glaive")
+end
+function ItemLogic.is_unique_quarterstaff(item)
+   local item_info = item:get_item_info()
+   return item_info:get_rarity() == 6 and item_info:get_skin_name():find("Quarterstaff")
+end
 
 
  return ItemLogic

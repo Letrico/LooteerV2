@@ -62,6 +62,8 @@ local settings = {
    legendary_staff_ga_count = 0,
    legendary_bow_ga_count = 0,
    legendary_crossbow_ga_count = 0,
+   legendary_glaive_ga_count = 0,
+   legendary_quarterstaff_ga_count = 0,
    unique_2h_mace_ga_count = 0,
    unique_2h_sword_ga_count = 0,
    unique_2h_axe_ga_count = 0,
@@ -69,6 +71,8 @@ local settings = {
    unique_staff_ga_count = 0,
    unique_bow_ga_count = 0,
    unique_crossbow_ga_count = 0,
+   unique_glaive_ga_count = 0,
+   unique_quarterstaff_ga_count = 0,
 
    draw_wanted_items = false
 }
@@ -129,6 +133,8 @@ function Settings.update()
          legendary_staff_ga_count = gui.elements.affix_settings.legendary_staff_slider:get(),
          legendary_bow_ga_count = gui.elements.affix_settings.legendary_bow_slider:get(),
          legendary_crossbow_ga_count = gui.elements.affix_settings.legendary_crossbow_slider:get(),
+         legendary_glaive_ga_count = gui.elements.affix_settings.legendary_glaive_slider:get(),
+         legendary_quarterstaff_ga_count = gui.elements.affix_settings.legendary_quarterstaff_slider:get(),
          unique_2h_mace_ga_count = gui.elements.affix_settings.unique_2h_mace_slider:get(),
          unique_2h_sword_ga_count = gui.elements.affix_settings.unique_2h_sword_slider:get(),
          unique_2h_axe_ga_count = gui.elements.affix_settings.unique_2h_axe_slider:get(),
@@ -136,6 +142,8 @@ function Settings.update()
          unique_staff_ga_count = gui.elements.affix_settings.unique_staff_slider:get(),
          unique_bow_ga_count = gui.elements.affix_settings.unique_bow_slider:get(),
          unique_crossbow_ga_count = gui.elements.affix_settings.unique_crossbow_slider:get(),
+         unique_glaive_ga_count = gui.elements.affix_settings.unique_glaive_slider:get(),
+         unique_quarterstaff_ga_count = gui.elements.affix_settings.unique_quarterstaff_slider:get(),
 
       
       -- Item Types

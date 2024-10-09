@@ -9,8 +9,8 @@ local ItemManager = {}
 local item_type_patterns = {
    sigil = { "Nightmare_Sigil", "BSK_Sigil" },
    equipment = { "Base", "Amulet", "Ring" },
-   quest = { "Global", "Glyph", "QST", "DGN", "pvp_currency" },
-   crafting = { "CraftingMaterial" },
+   quest = { "Global", "Glyph", "QST", "DGN", "pvp_currency", "Generic_Rune" },
+   crafting = { "CraftingMaterial", "Tempering_Recipe" },
    cinders = { "Test_BloodMoon_Currency" }
 }
 
@@ -235,6 +235,12 @@ function ItemManager.check_want_item(item, ignore_distance)
       elseif ItemLogic.is_legendary_crossbow(item) and Settings.get().custom_toggle == true then
          required_ga_count = settings.legendary_crossbow_ga_count
          foundOn = 'crossbow'
+      elseif ItemLogic.is_legendary_glaive(item) and Settings.get().custom_toggle == true then
+         required_ga_count = settings.legendary_glaive_ga_count
+         foundOn = 'glaive'
+      elseif ItemLogic.is_legendary_quarterstaff(item) and Settings.get().custom_toggle == true then
+         required_ga_count = settings.legendary_quarterstaff_ga_count
+         foundOn = 'quarterstaff'
       elseif ItemLogic.is_unique_2h_axe(item) and Settings.get().custom_toggle == true then
          required_ga_count = settings.unique_2h_axe_ga_count
          foundOn = '2hAxe'
@@ -256,6 +262,12 @@ function ItemManager.check_want_item(item, ignore_distance)
       elseif ItemLogic.is_unique_crossbow(item) and Settings.get().custom_toggle == true then
          required_ga_count = settings.unique_crossbow_ga_count
          foundOn = 'crossbow'
+      elseif ItemLogic.is_unique_glaive(item) and Settings.get().custom_toggle == true then
+         required_ga_count = settings.unique_glaive_ga_count
+         foundOn = 'glaive'
+      elseif ItemLogic.is_unique_quarterstaff(item) and Settings.get().custom_toggle == true then
+         required_ga_count = settings.unique_quarterstaff_ga_count
+         foundOn = 'quarterstaff'
       else
          -- Fallback to general settings for rarity == 5 or unique/uber items
          if (rarity == 5 and  Settings.get().custom_toggle == false) then
