@@ -21,6 +21,7 @@ local settings = {
    rare_elixirs = false,
    advanced_elixirs = false,
    sigils = false,
+   tribute = false,
    event_items = true,
    --jewerly
    legendary_amulet_ga_count = 0,
@@ -154,6 +155,7 @@ function Settings.update()
       advanced_elixirs = gui.elements.item_types.advanced_elixir_items_toggle:get(),
       sigils = gui.elements.item_types.sigil_items_toggle:get(),
       cinders = gui.elements.item_types.cinders_toggle:get(),
+      tribute = gui.elements.item_types.tribute_items_toggle:get(),
       event_items = gui.elements.item_types.event_items_toggle:get(),
 
       -- Debug

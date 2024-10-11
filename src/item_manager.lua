@@ -8,6 +8,7 @@ local ItemManager = {}
 -- Table to store item type patterns
 local item_type_patterns = {
    sigil = { "Nightmare_Sigil", "BSK_Sigil" },
+   tribute = { "Undercity_Tribute" },
    equipment = { "Base", "Amulet", "Ring" },
    quest = { "Global", "Glyph", "QST", "DGN", "pvp_currency", "Generic_Rune" },
    crafting = { "CraftingMaterial", "Tempering_Recipe" },
@@ -34,6 +35,10 @@ end
 
 function ItemManager.check_is_cinders(item)
    return ItemManager.check_item_type(item, "cinders")
+end
+
+function ItemManager.check_is_tribute(item)
+   return ItemManager.check_item_type(item, "tribute")
 end
 
 -- Specific functions using the generic check
@@ -78,7 +83,8 @@ function ItemManager.check_want_item(item, ignore_distance)
        (settings.advanced_elixirs and CustomItems.advanced_elixirs[id]) or
        (settings.cinders and ItemManager.check_is_cinders(item)) or
        (settings.event_items and CustomItems.event_items[id]) or
-       (settings.sigils and ItemManager.check_is_sigil(item))
+       (settings.sigils and ItemManager.check_is_sigil(item)) or
+       (settings.tribute and ItemManager.check_is_tribute(item))
 
    local is_event_item = settings.event_items and CustomItems.event_items[id]
    local is_cinders = settings.cinders and ItemManager.check_is_cinders(item)
