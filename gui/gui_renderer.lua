@@ -163,7 +163,7 @@ function gui_renderer:render()
          "Do you wanna pickup Advanced Elixirs II?")
       mainGui.elements.item_types.sigil_items_toggle:render("Sigils", "Do you want to loot dungeon sigils?")
       mainGui.elements.item_types.event_items_toggle:render("Event", "Do you want to pickup Treasure Bags?")
-      mainGui.elements.item_types.event_items_toggle:render("Event", "Do you want to pickup Treasure Bags?")     
+      mainGui.elements.item_types.tribute_items_toggle:render("Tributes", "Do you want to loot tributes?")   
       mainGui.elements.item_types.cinders_toggle:render("Cinders", "Do you want to pickup Cinders?")
       mainGui.elements.item_types.tree:pop()
    end
