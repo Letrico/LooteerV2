@@ -26,6 +26,19 @@ local custom_items = {
         [1856350] = "Elixir of Holy Bolts",
         [1856252] = "Elixir of Momentum",
     },
+    basic_elixirs = {
+        [1841186] = "Elixir of Advantage",
+        [1066488] = "Elixir of Cold Resistance",
+        [1841277] = "Elixir of Destruction",		
+        [1066492] = "Elixir of Fire Resistance",
+        [1841344] = "Elixir of Fortitude",
+        [1060592] = "Elixir of Iron Barbs",
+        [1066495] = "Elixir of Lightning Resistance",
+        [1066497] = "Elixir of Poison Resistance",
+        [1066499] = "Elixir of Precision",
+        [1841174] = "Elixir of Resourcefulness",
+        [1066501] = "Elixir of Shadow Resistance",
+    },
     advanced_elixirs = {
         [1841197] = "Elixir of Advantage II",
         [1066668] = "Elixir of Cold Resistance II",
@@ -47,7 +60,11 @@ local custom_items = {
         [221017] = "Doombringer",
         [609820] = "Harlequin Crest",
         [1275935] = "Melted Heart of Selig",
-        [1306338] = "Ring of Starless Skies"
+        [1306338] = "Ring of Starless Skies",
+        [2059803] = "Shroud of False Death",
+        [1982241] = "Nesekem, the Herald",
+        [2059799] = "Heir of Perdition",
+        [2059813] = "Shattered Vow"
     }
 }
 

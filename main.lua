@@ -1,7 +1,7 @@
 local Settings = require("src.settings")
 local ItemManager = require("src.item_manager")
 local Renderer = require("src.renderer")
-local GUI = require("gui.gui")
+local GUI = require("gui")
 local Utils = require("utils.utils")
 
 local function handle_loot(wanted_item)
@@ -17,10 +17,12 @@ end
 
 local function main_pulse()
    if not get_local_player() then return end
-   if not GUI.elements.main_toggle:get() then return end
-   if not Settings.should_execute() then return end
-
+   
    Settings.update()
+
+   if not Settings.get().enabled then return end
+   
+   if not Settings.should_execute() then return end
 
    local loot_priority = GUI.elements.general.loot_priority_combo:get()
 

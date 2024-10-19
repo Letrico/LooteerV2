@@ -1,4 +1,4 @@
-local gui = require("gui.gui")
+local gui = require("gui")
 
 local Settings = {}
 
@@ -20,8 +20,10 @@ local settings = {
    boss_items = false,
    rare_elixirs = false,
    advanced_elixirs = false,
+   basic_elixirs = false,
    sigils = false,
    tribute = false,
+   scroll = false,
    event_items = true,
    --jewerly
    legendary_amulet_ga_count = 0,
@@ -152,10 +154,12 @@ function Settings.update()
       crafting_items = gui.elements.item_types.crafting_items_toggle:get(),
       boss_items = gui.elements.item_types.boss_items_toggle:get(),
       rare_elixirs = gui.elements.item_types.rare_elixir_items_toggle:get(),
+      basic_elixirs = gui.elements.item_types.basic_elixir_items_toggle:get(),
       advanced_elixirs = gui.elements.item_types.advanced_elixir_items_toggle:get(),
       sigils = gui.elements.item_types.sigil_items_toggle:get(),
       cinders = gui.elements.item_types.cinders_toggle:get(),
       tribute = gui.elements.item_types.tribute_items_toggle:get(),
+      scroll = gui.elements.item_types.scroll_items_toggle:get(),
       event_items = gui.elements.item_types.event_items_toggle:get(),
 
       -- Debug

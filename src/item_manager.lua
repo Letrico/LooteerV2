@@ -12,7 +12,8 @@ local item_type_patterns = {
    equipment = { "Base", "Amulet", "Ring" },
    quest = { "Global", "Glyph", "QST", "DGN", "pvp_currency", "Generic_Rune" },
    crafting = { "CraftingMaterial", "Tempering_Recipe" },
-   cinders = { "Test_BloodMoon_Currency" }
+   cinders = { "Test_BloodMoon_Currency" },
+   scroll = { "Scroll_Of" }
 }
 
 -- Generic function to check item type
@@ -58,6 +59,10 @@ function ItemManager.check_is_crafting(item)
    return ItemManager.check_item_type(item, "crafting")
 end
 
+function ItemManager.check_is_scroll(item)
+   return ItemManager.check_item_type(item, "scroll")
+end
+
 ---@param item game.object Item to check
 ---@param ignore_distance boolean If we want to ignore the distance check
 function ItemManager.check_want_item(item, ignore_distance)
@@ -73,19 +78,19 @@ function ItemManager.check_want_item(item, ignore_distance)
    if not ignore_distance and Utils.distance_to(item) >= settings.distance then return false end
    if settings.skip_dropped and #affixes > 0 then return false end
    if loot_manager.is_gold(item) or loot_manager.is_potion(item) then return false end
+   
+   local is_consumable_item = 
+      (settings.boss_items and CustomItems.boss_items[id]) or
+      (settings.rare_elixirs and CustomItems.rare_elixirs[id]) or
+      (settings.basic_elixirs and CustomItems.basic_elixirs[id]) or
+      (settings.advanced_elixirs and CustomItems.advanced_elixirs[id]) or
+      (settings.scroll and ItemManager.check_is_scroll(item))
 
-   -- Check if the item is a special item
-   local is_special_item =
-       (settings.quest_items and ItemManager.check_is_quest_item(item)) or
-       (settings.boss_items and CustomItems.boss_items[id]) or
-       (settings.crafting_items and ItemManager.check_is_crafting(item)) or
-       (settings.rare_elixirs and CustomItems.rare_elixirs[id]) or
-       (settings.advanced_elixirs and CustomItems.advanced_elixirs[id]) or
-       (settings.cinders and ItemManager.check_is_cinders(item)) or
-       (settings.event_items and CustomItems.event_items[id]) or
-       (settings.sigils and ItemManager.check_is_sigil(item)) or
-       (settings.tribute and ItemManager.check_is_tribute(item))
+   local is_sigils = 
+      (settings.sigils and ItemManager.check_is_sigil(item)) or
+      (settings.tribute and ItemManager.check_is_tribute(item))
 
+   local is_quest_item = settings.quest_items and ItemManager.check_is_quest_item(item)
    local is_event_item = settings.event_items and CustomItems.event_items[id]
    local is_cinders = settings.cinders and ItemManager.check_is_cinders(item)
 
@@ -104,19 +109,27 @@ function ItemManager.check_want_item(item, ignore_distance)
       return true
    end
 
-   if is_special_item then
-      if is_cinders and crafting then
+   -- Sigil has its own inventory now, only pick it if sigil inventory is not full
+   if is_sigils then
+      if not Utils.is_sigil_inventory_full() then
          return true
       end
-
-      if (is_event_item and Utils.is_inventory_full()) or 
-         (not is_event_item and Utils.is_consumable_inventory_full()) then
-         return false
-      end
-      return true -- If it's a special item and inventory isn't full, we want it
    end
 
-   local inventory_full = is_special_item and Utils.is_consumable_inventory_full() or Utils.is_inventory_full()
+   -- Consumable inventory check
+   if is_consumable_item then
+      if not Utils.is_consumable_inventory_full() then
+         return true
+      end
+   end
+
+   -- Loot them all quest items, Rune is also in this category at the moment because we are missing socketable inventory check
+   if is_quest_item then
+      return true
+   end
+
+   -- Handle Equipments
+   local inventory_full = Utils.is_inventory_full()
    if inventory_full then return false end
 
    -- If it's a special item, we want it
