@@ -25,6 +25,10 @@ local custom_items = {
     rare_elixirs = {
         [1856350] = "Elixir of Holy Bolts",
         [1856252] = "Elixir of Momentum",
+        [1910431] = "Elixir of Tailwind",
+        [1909700] = "Elixir of Aggression",
+        [1952998] = "Elixir of Swift Revival",
+        [1908277] = "Elixir of Sacrifice",
     },
     basic_elixirs = {
         [1841186] = "Elixir of Advantage",
