@@ -94,6 +94,7 @@ gui.elements = {
       rare_elixir_items_toggle = checkbox:new(false, get_hash(plugin_label .. "_rare_elixir_items_toggle")),
       advanced_elixir_items_toggle = checkbox:new(false, get_hash(plugin_label .. "_advanced_elixir_items_toggle")),
       sigil_items_toggle = checkbox:new(false, get_hash(plugin_label .. "_sigil_items_toggle")),
+      tribute_items_toggle = checkbox:new(false, get_hash(plugin_label .. "_tribute_items_toggle")),
       cinders_toggle = checkbox:new(false, get_hash(plugin_label .. "_cinders_toggle")),
    },
 
