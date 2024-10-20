@@ -24,4 +24,8 @@ function Utils.is_sigil_inventory_full()
    return #get_local_player():get_dungeon_key_items() == 33
 end
 
+function Utils.is_socketable_inventory_full()
+   return #get_local_player():get_socketable_items() == 33
+end
+
 return Utils

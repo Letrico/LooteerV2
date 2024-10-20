@@ -94,6 +94,7 @@ gui.elements = {
       basic_elixir_items_toggle = checkbox:new(false, get_hash(plugin_label .. "_basic_elixir_items_toggle")),
       advanced_elixir_items_toggle = checkbox:new(false, get_hash(plugin_label .. "_advanced_elixir_items_toggle")),
       sigil_items_toggle = checkbox:new(false, get_hash(plugin_label .. "_sigil_items_toggle")),
+      rune_items_toggle = checkbox:new(false, get_hash(plugin_label .. "_rune_items_toggle")),
       tribute_items_toggle = checkbox:new(false, get_hash(plugin_label .. "_tribute_items_toggle")),
       scroll_items_toggle = checkbox:new(false, get_hash(plugin_label .. "_scroll_items_toggle")),
       cinders_toggle = checkbox:new(false, get_hash(plugin_label .. "_cinders_toggle")),
@@ -261,6 +262,7 @@ function gui.render()
       gui.elements.item_types.advanced_elixir_items_toggle:render("Advanced Elixirs",
          "Do you wanna pickup Advanced Elixirs II?")
       gui.elements.item_types.sigil_items_toggle:render("Sigils", "Do you want to loot dungeon sigils?")
+      gui.elements.item_types.rune_items_toggle:render("Runes", "Do you want to runes?")
       gui.elements.item_types.event_items_toggle:render("Event", "Do you want to pickup Treasure Bags?")
       gui.elements.item_types.tribute_items_toggle:render("Tributes", "Do you want to loot tributes?")
       gui.elements.item_types.scroll_items_toggle:render("Scrolls", "Do you want to loot scrolls?")

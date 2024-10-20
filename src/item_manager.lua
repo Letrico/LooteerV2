@@ -10,10 +10,11 @@ local item_type_patterns = {
    sigil = { "Nightmare_Sigil", "BSK_Sigil" },
    tribute = { "Undercity_Tribute" },
    equipment = { "Base", "Amulet", "Ring" },
-   quest = { "Global", "Glyph", "QST", "DGN", "pvp_currency", "Generic_Rune" },
+   quest = { "Global", "Glyph", "QST", "DGN", "pvp_currency" },
    crafting = { "CraftingMaterial", "Tempering_Recipe" },
    cinders = { "Test_BloodMoon_Currency" },
-   scroll = { "Scroll_Of" }
+   scroll = { "Scroll_Of" },
+   rune = { "Generic_Rune" }
 }
 
 -- Generic function to check item type
@@ -63,6 +64,10 @@ function ItemManager.check_is_scroll(item)
    return ItemManager.check_item_type(item, "scroll")
 end
 
+function ItemManager.check_is_rune(item)
+   return ItemManager.check_item_type(item, "rune")
+end
+
 ---@param item game.object Item to check
 ---@param ignore_distance boolean If we want to ignore the distance check
 function ItemManager.check_want_item(item, ignore_distance)
@@ -93,8 +98,8 @@ function ItemManager.check_want_item(item, ignore_distance)
    local is_quest_item = settings.quest_items and ItemManager.check_is_quest_item(item)
    local is_event_item = settings.event_items and CustomItems.event_items[id]
    local is_cinders = settings.cinders and ItemManager.check_is_cinders(item)
-
    local is_crafting_item = settings.crafting_items and ItemManager.check_is_crafting(item)
+   local is_rune = settings.rune and ItemManager.check_is_rune(item)
 
    if is_event_item then
       if Utils.is_inventory_full() then
@@ -119,6 +124,13 @@ function ItemManager.check_want_item(item, ignore_distance)
    -- Consumable inventory check
    if is_consumable_item then
       if not Utils.is_consumable_inventory_full() then
+         return true
+      end
+   end
+
+   -- Socketable inventory check
+   if is_rune then
+      if not Utils.is_socketable_inventory_full() then
          return true
       end
    end
