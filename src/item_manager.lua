@@ -144,9 +144,6 @@ function ItemManager.check_want_item(item, ignore_distance)
    local inventory_full = Utils.is_inventory_full()
    if inventory_full then return false end
 
-   -- If it's a special item, we want it
-   if is_special_item then return true end
-
    -- Check rarity
    if rarity < settings.rarity then return false end
 
