@@ -102,41 +102,32 @@ function ItemManager.check_want_item(item, ignore_distance)
    local is_rune = settings.rune and ItemManager.check_is_rune(item)
 
    if is_event_item then
+      -- If the item is crafting material or cinders, skip inventory and consumable checks
       if Utils.is_inventory_full() then
          return false 
       elseif Utils.is_consumable_inventory_full() then
          return true 
       end
-   end
-
-   -- If the item is crafting material or cinders, skip inventory and consumable checks
-   if is_crafting_item or is_cinders then
+   elseif is_crafting_item or is_cinders then
+      -- If the item is crafting material or cinders, skip inventory and consumable checks
       return true
-   end
-
-   -- Sigil has its own inventory now, only pick it if sigil inventory is not full
-   if is_sigils then
+   elseif is_sigils then
+      -- Sigil has its own inventory now, only pick it if sigil inventory is not full
       if not Utils.is_sigil_inventory_full() then
          return true
       end
-   end
-
-   -- Consumable inventory check
-   if is_consumable_item then
+   elseif is_consumable_item then
+      -- Consumable inventory check
       if not Utils.is_consumable_inventory_full() then
          return true
       end
-   end
-
-   -- Socketable inventory check
-   if is_rune then
+   elseif is_rune then
+      -- Socketable inventory check
       if not Utils.is_socketable_inventory_full() then
          return true
       end
-   end
-
-   -- Loot them all quest items, Rune is also in this category at the moment because we are missing socketable inventory check
-   if is_quest_item then
+   elseif is_quest_item then
+      -- Loot them all quest items
       return true
    end
 
