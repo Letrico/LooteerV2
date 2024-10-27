@@ -12,6 +12,24 @@ function Utils.get_greater_affix_count(display_name)
    return count
 end
 
+function Utils.is_lowest_stack_below(inventory, item_id, max_stack, looted_stack)
+   if not inventory then return true end  -- Return true if no inventory (safer to try pickup)
+
+   local lowest_stack = max_stack  -- Initialize with max_stack
+
+   for _, item in pairs(inventory) do
+       if item:get_sno_id() == item_id then
+           local stack_count = item:get_stack_count()
+           if stack_count < lowest_stack then
+               lowest_stack = stack_count
+           end
+       end
+   end
+
+   -- Return true only if lowest stack + looted stack is less than equals max_stack
+   return (lowest_stack + looted_stack) <= max_stack
+end
+
 function Utils.is_inventory_full()
    return get_local_player():get_item_count() == 33
 end

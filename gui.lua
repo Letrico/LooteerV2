@@ -106,7 +106,7 @@ gui.elements = {
    },
 }
 function gui.render()
-   if not gui.elements.main_tree:push("Looter (Pirated Edition)") then
+   if not gui.elements.main_tree:push("Looter | Letrico | v1.2.0") then
       return
    end
 
@@ -123,7 +123,7 @@ function gui.render()
       gui.elements.general.rarity_combo:render("Rarity", options.rarities,
          "Minimum Rarity for bot to consider picking up.")
       gui.elements.general.distance_slider:render("Distance", "Distance from the loot to execute pickup")
-      gui.elements.general.skip_dropped_toggle:render("Skip Self Dropped",
+      gui.elements.general.skip_dropped_toggle:render("Skip Self Dropped (Equipment only)",
          "Do you want the bot to not loot items that you dropped yourself?")
       gui.elements.general.loot_priority_combo:render("Loot Priority", {"Closest First", "Best First"},
          "Select the priority for looting items")

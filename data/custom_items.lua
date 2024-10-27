@@ -29,6 +29,11 @@ local custom_items = {
         [1909700] = "Elixir of Aggression",
         [1952998] = "Elixir of Swift Revival",
         [1908277] = "Elixir of Sacrifice",
+        [2072998] = "Seething Opal of Socketables",
+        [2073000] = "Seething Opal of Materials",
+        [2072959] = "Seething Opal of Gold",
+        [2072996] = "Seething Opal of Equipment",
+        [2073002] = "Seething Opal of Torment",
     },
     basic_elixirs = {
         [1841186] = "Elixir of Advantage",

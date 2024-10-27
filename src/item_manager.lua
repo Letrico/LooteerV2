@@ -35,6 +35,23 @@ function ItemManager.check_item_type(item, type_name)
    return false
 end
 
+function ItemManager.check_item_stack(item, id)
+   local stack = 1
+   if (CustomItems.rare_elixirs[id] or
+         CustomItems.basic_elixirs[id] or
+         CustomItems.advanced_elixirs[id]) then
+      stack = 99
+   elseif ItemManager.check_is_scroll(item) then
+      stack = 20
+   elseif CustomItems.boss_items[id] then
+      stack = 50
+   elseif ItemManager.check_is_rune(item) then
+      stack = 100
+   end
+
+   return stack
+end
+
 function ItemManager.check_is_cinders(item)
    return ItemManager.check_item_type(item, "cinders")
 end
@@ -66,6 +83,10 @@ end
 
 function ItemManager.check_is_rune(item)
    return ItemManager.check_item_type(item, "rune")
+end
+
+function ItemManager.check_is_opal(item)
+   return ItemManager.check_item_type(item, "opal")
 end
 
 ---@param item game.object Item to check
@@ -117,13 +138,25 @@ function ItemManager.check_want_item(item, ignore_distance)
          return true
       end
    elseif is_consumable_item then
-      -- Consumable inventory check
-      if not Utils.is_consumable_inventory_full() then
+      -- Consumable inventory check and if have existing stack to loot
+      if not Utils.is_consumable_inventory_full() or
+            Utils.is_lowest_stack_below(
+               get_local_player():get_consumable_items(),
+               id,
+               ItemManager.check_item_stack(item, id),
+               item_info:get_stack_count()
+            ) then
          return true
       end
    elseif is_rune then
-      -- Socketable inventory check
-      if not Utils.is_socketable_inventory_full() then
+      -- Socketable inventory check and if have existing stack to loot
+      if not Utils.is_socketable_inventory_full() or
+            Utils.is_lowest_stack_below(
+               get_local_player():get_socketable_items(),
+               id,
+               ItemManager.check_item_stack(item, id),
+               item_info:get_stack_count()
+            ) then
          return true
       end
    elseif is_quest_item then
