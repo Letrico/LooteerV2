@@ -7,7 +7,8 @@ local ItemManager = {}
 
 -- Table to store item type patterns
 local item_type_patterns = {
-   sigil = { "Nightmare_Sigil", "BSK_Sigil" },
+   sigil = { "Nightmare_Sigil" },
+   compass = { "BSK_Sigil" },
    tribute = { "Undercity_Tribute" },
    equipment = { "Base", "Amulet", "Ring" },
    quest = { "Global", "Glyph", "QST", "DGN", "pvp_currency" },
@@ -22,8 +23,8 @@ function ItemManager.check_item_type(item, type_name)
    local item_info = item:get_item_info()
    local name = item_info:get_skin_name()
 
-   -- Special case for sigils and equipment
-   if (type_name == "sigil" or type_name == "equipment") and item_info:get_rarity() ~= 0 then
+   -- Special case for equipment
+   if type_name == "equipment" and item_info:get_rarity() ~= 0 then
       return false
    end
 
@@ -60,9 +61,12 @@ function ItemManager.check_is_tribute(item)
    return ItemManager.check_item_type(item, "tribute")
 end
 
--- Specific functions using the generic check
 function ItemManager.check_is_sigil(item)
    return ItemManager.check_item_type(item, "sigil")
+end
+
+function ItemManager.check_is_compass(item)
+   return ItemManager.check_item_type(item, "compass")
 end
 
 function ItemManager.check_is_equipment(item)
@@ -114,7 +118,8 @@ function ItemManager.check_want_item(item, ignore_distance)
 
    local is_sigils = 
       (settings.sigils and ItemManager.check_is_sigil(item)) or
-      (settings.tribute and ItemManager.check_is_tribute(item))
+      (settings.tribute and ItemManager.check_is_tribute(item)) or
+      (settings.compass and ItemManager.check_is_compass(item))
 
    local is_quest_item = settings.quest_items and ItemManager.check_is_quest_item(item)
    local is_event_item = settings.event_items and CustomItems.event_items[id]
