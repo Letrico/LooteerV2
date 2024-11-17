@@ -17,12 +17,14 @@ end
 
 local function main_pulse()
    if not get_local_player() then return end
-   
+
    Settings.update()
 
    if not Settings.get().enabled then return end
-   
+
    if not Settings.should_execute() then return end
+
+   orbwalker.set_auto_loot_toggle(false)
 
    local loot_priority = GUI.elements.general.loot_priority_combo:get()
 
