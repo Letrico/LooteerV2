@@ -4,6 +4,7 @@ local custom_items = {
         [1930727] = "Treasure Bag",
         [1930725] = "Treasure Bag",
         [1931272] = "Greater Treasure Bag",
+        [1468409] = "Gileon's Brew",
     },
 
     boss_items = {

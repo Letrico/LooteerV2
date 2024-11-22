@@ -107,7 +107,7 @@ gui.elements = {
    },
 }
 function gui.render()
-   if not gui.elements.main_tree:push("Looter | Letrico | v1.2.2") then
+   if not gui.elements.main_tree:push("Looter | Letrico | v1.2.3") then
       return
    end
 
@@ -267,7 +267,7 @@ function gui.render()
       gui.elements.item_types.compass_items_toggle:render("Horde Compasses", "Do you want to loot horde compasses?")
       gui.elements.item_types.tribute_items_toggle:render("Tributes", "Do you want to loot tributes?")
       gui.elements.item_types.rune_items_toggle:render("Runes", "Do you want to runes?")
-      gui.elements.item_types.event_items_toggle:render("Event", "Do you want to pickup Treasure Bags?")
+      gui.elements.item_types.event_items_toggle:render("Event", "Do you want to pickup Event items?")
       gui.elements.item_types.cinders_toggle:render("Cinders", "Do you want to pickup Cinders?")
       gui.elements.item_types.tree:pop()
    end
