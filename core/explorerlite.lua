@@ -75,7 +75,7 @@ local explorerlite = {
     is_task_running = false, --added to prevent boss dead pathing 
 }
 local target_position = nil
-local grid_size = 2            -- Size of grid cells in meters
+local grid_size = 0.8            -- Size of grid cells in meters
 local max_target_distance = 120 -- Maximum distance for a new target
 local target_distance_states = {120, 40, 20, 5}
 local target_distance_index = 1
