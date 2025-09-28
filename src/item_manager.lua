@@ -16,6 +16,7 @@ local item_type_patterns = {
    crafting = { "CraftingMaterial", "Crafting_Legendary" },
    recipe = { "Tempering_Recipe", "Item_Book_Generic", "Item_Book_Horadrim", "Test_Mount", "mnt_amor", "MountReins" },
    cinders = { "Test_BloodMoon_Currency" },
+   infernal_warp = { "S10_Chaos_Currency" },
    scroll = { "Scroll_Of" },
    rune = { "Generic_Rune", "S07_Socketable"}
 }
@@ -53,6 +54,10 @@ function ItemManager.check_item_stack(item, id)
    end
 
    return stack
+end
+
+function ItemManager.check_is_infernal_warp(item)
+   return ItemManager.check_item_type(item, "infernal_warp")
 end
 
 function ItemManager.check_is_cinders(item)
@@ -138,6 +143,7 @@ function ItemManager.check_want_item(item, ignore_distance)
    local is_quest_item = settings.quest_items and ItemManager.check_is_quest_item(item)
    local is_event_item = settings.event_items and CustomItems.event_items[id]
    local is_cinders = settings.cinders and ItemManager.check_is_cinders(item)
+   local is_infernal_warp = settings.infernal_warp and ItemManager.check_is_infernal_warp(item)
    local is_crafting_item = settings.crafting_items and ItemManager.check_is_crafting(item)
    local is_rune = settings.rune and ItemManager.check_is_rune(item)
    local is_recipe = settings.crafting_items and ItemManager.check_is_recipe(item)
@@ -150,7 +156,7 @@ function ItemManager.check_want_item(item, ignore_distance)
       elseif Utils.is_consumable_inventory_full() then
          return true 
       end
-   elseif is_crafting_item or is_cinders then
+   elseif is_crafting_item or is_cinders or is_infernal_warp then
       -- If the item is crafting material or cinders, skip inventory and consumable checks
       return true
    elseif is_sigils then
