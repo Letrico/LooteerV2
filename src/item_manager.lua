@@ -128,7 +128,14 @@ function ItemManager.check_want_item(item, ignore_distance)
    if settings.skip_dropped and #affixes > 0 then return false end
    if loot_manager.is_gold(item) or loot_manager.is_potion(item) then return false end
    
-   local is_consumable_item = 
+   -- Check for Obducite BEFORE general crafting check to prevent interference
+   local is_obducite = CustomItems.obducite[id]
+   if is_obducite then
+      -- Only pick up if obducite toggle is enabled
+      return settings.obducite
+   end
+   
+   local is_consumable_item =
       (settings.boss_items and CustomItems.boss_items[id]) or
       (settings.rare_elixirs and CustomItems.rare_elixirs[id]) or
       (settings.basic_elixirs and CustomItems.basic_elixirs[id]) or
