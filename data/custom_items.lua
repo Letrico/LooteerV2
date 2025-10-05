@@ -1,5 +1,9 @@
 local custom_items = {
 
+    obducite = {
+        [1852185] = "Obducite",
+    },
+
     event_items = {
         [1930727] = "Treasure Bag",
         [1930725] = "Treasure Bag",

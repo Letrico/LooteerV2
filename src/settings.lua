@@ -17,6 +17,7 @@ local settings = {
    uber_unique_ga_count = 0,
    quest_items = false,
    crafting_items = false,
+   obducite = false,
    cinders = false,
    infernal_warp = false,
    boss_items = false,
@@ -156,6 +157,7 @@ function Settings.update()
       -- Item Types
       quest_items = gui.elements.item_types.quest_items_toggle:get(),
       crafting_items = gui.elements.item_types.crafting_items_toggle:get(),
+      obducite = gui.elements.item_types.obducite_toggle:get(),
       boss_items = gui.elements.item_types.boss_items_toggle:get(),
       rare_elixirs = gui.elements.item_types.rare_elixir_items_toggle:get(),
       basic_elixirs = gui.elements.item_types.basic_elixir_items_toggle:get(),
