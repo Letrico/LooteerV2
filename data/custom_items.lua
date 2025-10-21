@@ -1,4 +1,16 @@
 local custom_items = {
+
+    obducite = {
+        [1852185] = "Obducite",
+    },
+
+    event_items = {
+        [1930727] = "Treasure Bag",
+        [1930725] = "Treasure Bag",
+        [1931272] = "Greater Treasure Bag",
+        [1468409] = "Gileon's Brew",
+    },
+
     boss_items = {
         [1502128] = "Living Steel",
         [1518053] = "Distilled Fear",
@@ -13,24 +25,52 @@ local custom_items = {
         [1489422] = "Blackened Femur",
         [1882910] = "Profane Mindcage",
         [1489411] = "Trembling Hand",
-        [1971857] = "Abyssal Scroll"
+        [1971857] = "Abyssal Scroll",
+        [2136706] = "Fugitive Head",
+        [2193876] = "Judicator's Mask",
+        [2194099] = "Betrayer's Husk",
+        [2194097] = "Abhorrent Heart",
+        [2255243] = "Behelit",
     },
     rare_elixirs = {
         [1856350] = "Elixir of Holy Bolts",
         [1856252] = "Elixir of Momentum",
+        [1910431] = "Elixir of Tailwind",
+        [1909700] = "Elixir of Aggression",
+        [1952998] = "Elixir of Swift Revival",
+        [1908277] = "Elixir of Sacrifice",
+        [2072998] = "Seething Opal of Socketables",
+        [2073000] = "Seething Opal of Materials",
+        [2072959] = "Seething Opal of Gold",
+        [2072996] = "Seething Opal of Equipment",
+        [2073002] = "Seething Opal of Torment",
+        [2145204] = "Draught of Whispers",
+    },
+    basic_elixirs = {
+        [1841186] = "Elixir of Advantage",
+        [1066488] = "Elixir of Cold Resistance",
+        [1841277] = "Elixir of Destruction",		
+        [1066492] = "Elixir of Fire Resistance",
+        [1841344] = "Elixir of Fortitude",
+        [1060592] = "Elixir of Iron Barbs",
+        [1066495] = "Elixir of Lightning Resistance",
+        [1066497] = "Elixir of Poison Resistance",
+        [1066499] = "Elixir of Precision",
+        [1841174] = "Elixir of Resourcefulness",
+        [1066501] = "Elixir of Shadow Resistance",
     },
     advanced_elixirs = {
-	[1841197] = "Elixir of Advantage II",
-	[1066668] = "Elixir of Cold Resistance II",
-	[1841287] = "Elixir of Destruction II",		
-	[1066704] = "Elixir of Fire Resistance II",
-	[1841327] = "Elixir of Fortitude II",
-	[1060634] = "Elixir of Iron Barbs II",
-	[1066718] = "Elixir of Lightning Resistance II",
-	[1066727] = "Elixir of Poison Resistance II",
-	[1066737] = "Elixir of Precision II",
-	[1841178] = "Elixir of Resourcefulness II",
-	[1067122] = "Elixir of  Shadow Resistance II",
+        [1841197] = "Elixir of Advantage II",
+        [1066668] = "Elixir of Cold Resistance II",
+        [1841287] = "Elixir of Destruction II",		
+        [1066704] = "Elixir of Fire Resistance II",
+        [1841327] = "Elixir of Fortitude II",
+        [1060634] = "Elixir of Iron Barbs II",
+        [1066718] = "Elixir of Lightning Resistance II",
+        [1066727] = "Elixir of Poison Resistance II",
+        [1066737] = "Elixir of Precision II",
+        [1841178] = "Elixir of Resourcefulness II",
+        [1067122] = "Elixir of Shadow Resistance II",
     },
     ubers = {
         [1901484] = "Tyrael's Might",
@@ -40,7 +80,11 @@ local custom_items = {
         [221017] = "Doombringer",
         [609820] = "Harlequin Crest",
         [1275935] = "Melted Heart of Selig",
-        [1306338] = "Ring of Starless Skies"
+        [1306338] = "Ring of Starless Skies",
+        [2059803] = "Shroud of False Death",
+        [1982241] = "Nesekem, the Herald",
+        [2059799] = "Heir of Perdition",
+        [2059813] = "Shattered Vow"
     }
 }
 

@@ -5,21 +5,26 @@ local Utils = require("utils.utils")
 local Renderer = {}
 
 function Renderer.draw_stuff()
-    if not get_local_player() or not Settings.get().enabled then return end
+    local player = get_local_player()
+    if not player then return end
+    local settings = Settings.get()
+    if not settings.enabled then return end
 
+    local base_pos = get_player_position()
     if Utils.is_inventory_full() then
-        graphics.text_3d("Inventory Full", get_player_position(), 20, color_red(255))
+        graphics.text_3d("Inventory Full", base_pos, 20, color_red(255))
     end
-
     if Utils.is_consumable_inventory_full() then
-        local ppos = get_player_position()
-        local px, py, pz = ppos:x(), ppos:y(), ppos:z() + 1
-        local new_ppos = vec3:new(px, py, pz)
-
-        graphics.text_3d("Consumable Inventory Full", new_ppos, 20, color_red(255))
+        graphics.text_3d("Consumable Inventory Full", vec3:new(base_pos:x(), base_pos:y(), base_pos:z() + 1), 20, color_red(255))
+    end
+    if Utils.is_socketable_inventory_full() then
+        graphics.text_3d("Socketable Inventory Full", vec3:new(base_pos:x(), base_pos:y(), base_pos:z() + 2), 20, color_red(255))
+    end
+    if Utils.is_sigil_inventory_full() then
+        graphics.text_3d("Sigil Inventory Full", vec3:new(base_pos:x(), base_pos:y(), base_pos:z() + 3), 20, color_red(255))
     end
 
-    if not Settings.get().draw_wanted_items then return end
+    if not settings.draw_wanted_items then return end
 
     local items = actors_manager:get_all_items()
     for _, item in pairs(items) do
