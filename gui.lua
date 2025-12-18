@@ -1,7 +1,7 @@
 local plugin_label = "Looter (Pirated Edition) "
 local gui = {}
 local options = require("data.gui_options")
-local version = "v1.3.4"
+local version = "v1.3.5"
 
 
 gui.elements = {
