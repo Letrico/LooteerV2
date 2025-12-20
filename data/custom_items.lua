@@ -35,7 +35,6 @@ local custom_items = {
         [2429479] = "Purified Horn of Duriel",
         [2429473] = "Purified Claw of Andariel",
         [2429477] = "Purified Eye of Belial",
-        [2398338] = "Heavenly Sigil",
     },
     rare_elixirs = {
         [1856350] = "Elixir of Holy Bolts",

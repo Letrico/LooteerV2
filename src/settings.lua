@@ -18,7 +18,7 @@ local settings = {
    quest_items = false,
    crafting_items = false,
    cinders = false,
-   infernal_warp = false,
+   heavenly_sigil = false,
    boss_items = false,
    rare_elixirs = false,
    advanced_elixirs = false,
@@ -167,7 +167,7 @@ function Settings.update()
       tribute = gui.elements.item_types.tribute_items_toggle:get(),
       scroll = gui.elements.item_types.scroll_items_toggle:get(),
       event_items = gui.elements.item_types.event_items_toggle:get(),
-      infernal_warp = gui.elements.item_types.infernal_warp_toggle:get(),
+      heavenly_sigil = gui.elements.item_types.heavenly_sigil_toggle:get(),
 
       -- Debug
       draw_wanted_items = gui.elements.debug.draw_wanted_toggle:get()

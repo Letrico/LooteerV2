@@ -16,7 +16,7 @@ local item_type_patterns = {
    crafting = { "CraftingMaterial", "Crafting_Legendary" },
    recipe = { "Tempering_Recipe", "Item_Book_Generic", "Item_Book_Horadrim", "Test_Mount", "mnt_amor", "MountReins" },
    cinders = { "Test_BloodMoon_Currency" },
-   infernal_warp = { "S10_Chaos_Currency" },
+   heavenly_sigil = { "S11_Heavenly_Sigil" },
    scroll = { "Scroll_Of" },
    rune = { "Generic_Rune", "S07_Socketable"}
 }
@@ -56,8 +56,8 @@ function ItemManager.check_item_stack(item, id)
    return stack
 end
 
-function ItemManager.check_is_infernal_warp(item)
-   return ItemManager.check_item_type(item, "infernal_warp")
+function ItemManager.check_is_heavenly_sigil(item)
+   return ItemManager.check_item_type(item, "heavenly_sigil")
 end
 
 function ItemManager.check_is_cinders(item)
@@ -133,7 +133,8 @@ function ItemManager.check_want_item(item, ignore_distance)
       (settings.rare_elixirs and CustomItems.rare_elixirs[id]) or
       (settings.basic_elixirs and CustomItems.basic_elixirs[id]) or
       (settings.advanced_elixirs and CustomItems.advanced_elixirs[id]) or
-      (settings.scroll and ItemManager.check_is_scroll(item))
+      (settings.scroll and ItemManager.check_is_scroll(item)) or
+      (settings.heavenly_sigil and ItemManager.check_is_heavenly_sigil(item))
 
    local is_sigils = 
       (settings.sigils and ItemManager.check_is_sigil(item)) or
@@ -143,7 +144,6 @@ function ItemManager.check_want_item(item, ignore_distance)
    local is_quest_item = settings.quest_items and ItemManager.check_is_quest_item(item)
    local is_event_item = settings.event_items and CustomItems.event_items[id]
    local is_cinders = settings.cinders and ItemManager.check_is_cinders(item)
-   local is_infernal_warp = settings.infernal_warp and ItemManager.check_is_infernal_warp(item)
    local is_crafting_item = settings.crafting_items and ItemManager.check_is_crafting(item)
    local is_rune = settings.rune and ItemManager.check_is_rune(item)
    local is_recipe = settings.crafting_items and ItemManager.check_is_recipe(item)
@@ -156,7 +156,7 @@ function ItemManager.check_want_item(item, ignore_distance)
       elseif Utils.is_consumable_inventory_full() then
          return true 
       end
-   elseif is_crafting_item or is_cinders or is_infernal_warp then
+   elseif is_crafting_item or is_cinders then
       -- If the item is crafting material or cinders, skip inventory and consumable checks
       return true
    elseif is_sigils then

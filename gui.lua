@@ -1,7 +1,7 @@
 local plugin_label = "Looter (Pirated Edition) "
 local gui = {}
 local options = require("data.gui_options")
-local version = "v1.3.6"
+local version = "v1.3.7"
 
 
 gui.elements = {
@@ -100,7 +100,7 @@ gui.elements = {
       tribute_items_toggle = checkbox:new(false, get_hash(plugin_label .. "_tribute_items_toggle")),
       scroll_items_toggle = checkbox:new(false, get_hash(plugin_label .. "_scroll_items_toggle")),
       cinders_toggle = checkbox:new(false, get_hash(plugin_label .. "_cinders_toggle")),
-      infernal_warp_toggle = checkbox:new(false, get_hash(plugin_label .. "_infernal_warp_toggle")),
+      heavenly_sigil_toggle = checkbox:new(false, get_hash(plugin_label .. "_heavenly_sigil_toggle")),
    },
 
    debug = {
@@ -271,7 +271,7 @@ function gui.render()
       gui.elements.item_types.rune_items_toggle:render("Runes", "Do you want to runes?")
       gui.elements.item_types.event_items_toggle:render("Event", "Do you want to pickup Event items?")
       gui.elements.item_types.cinders_toggle:render("Cinders", "Do you want to pickup Cinders?")
-      gui.elements.item_types.infernal_warp_toggle:render("Infernal Warp", "Do you want to pickup Infernal Warp?")
+      gui.elements.item_types.heavenly_sigil_toggle:render("Heavenly Sigil", "Do you want to pickup Heavenly Sigil?")
       gui.elements.item_types.tree:pop()
    end
  
