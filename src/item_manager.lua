@@ -177,6 +177,8 @@ function ItemManager.check_want_item(item, ignore_distance)
       -- Sigil has its own inventory now, only pick it if sigil inventory is not full
       if not Utils.is_sigil_inventory_full() then
          return true
+      else 
+         return false
       end
    elseif is_tribute or is_compass then
       if not Utils.is_sigil_inventory_full() or
@@ -187,6 +189,8 @@ function ItemManager.check_want_item(item, ignore_distance)
                item_info:get_stack_count()
             ) then
          return true
+      else
+         return false
       end
    elseif is_consumable_item then
       -- Consumable inventory check and if have existing stack to loot
@@ -198,6 +202,8 @@ function ItemManager.check_want_item(item, ignore_distance)
                item_info:get_stack_count()
             ) then
          return true
+      else
+         return false
       end
    elseif is_socketable then
       -- Socketable inventory check and if have existing stack to loot
@@ -215,10 +221,14 @@ function ItemManager.check_want_item(item, ignore_distance)
    elseif is_recipe then
       if not Utils.is_inventory_full() then
          return true
+      else
+         return false
       end
    elseif is_item_cache then
       if not Utils.is_inventory_full() then
          return true
+      else
+         return false
       end
    elseif is_quest_item then
       -- Loot them all quest items
