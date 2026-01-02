@@ -7,7 +7,7 @@ local ItemManager = {}
 
 -- Table to store item type patterns
 local item_type_patterns = {
-   sigil = { "Nightmare_Sigil", "S07_WitcherSigil", "S07_DRLG_Sigil" },
+   sigil = { "Nightmare_Sigil", "S07_WitcherSigil", "S07_DRLG_Sigil", "S09_Prop_Astaroth_NMD" },
    compass = { "BSK_Sigil" },
    tribute = { "Undercity_Tribute" },
    equipment = { "Base", "Amulet", "Ring" },
@@ -18,7 +18,8 @@ local item_type_patterns = {
    cinders = { "Test_BloodMoon_Currency" },
    heavenly_sigil = { "S11_Heavenly_Sigil" },
    scroll = { "Scroll_Of" },
-   rune = { "Generic_Rune", "S07_Socketable"}
+   rune = { "Generic_Rune", "S07_Socketable"},
+   gemstone = { "Item_Gemstone", "Gem_"}
 }
 
 -- Generic function to check item type
@@ -51,6 +52,12 @@ function ItemManager.check_item_stack(item, id)
       stack = 99
    elseif ItemManager.check_is_rune(item) then
       stack = 100
+   elseif ItemManager.check_is_tribute(item) then
+      stack = 99
+   elseif ItemManager.check_is_compass(item) then
+      stack = 99
+   elseif ItemManager.check_is_gemstone(item) then
+      stack = 99
    end
 
    return stack
@@ -112,6 +119,10 @@ function ItemManager.check_is_opal(item)
    return ItemManager.check_item_type(item, "opal")
 end
 
+function ItemManager.check_is_gemstone(item)
+   return ItemManager.check_item_type(item, "gemstone")
+end
+
 ---@param item game.object Item to check
 ---@param ignore_distance boolean If we want to ignore the distance check
 function ItemManager.check_want_item(item, ignore_distance)
@@ -136,16 +147,19 @@ function ItemManager.check_want_item(item, ignore_distance)
       (settings.scroll and ItemManager.check_is_scroll(item)) or
       (settings.heavenly_sigil and ItemManager.check_is_heavenly_sigil(item))
 
-   local is_sigils = 
-      (settings.sigils and ItemManager.check_is_sigil(item)) or
-      (settings.tribute and ItemManager.check_is_tribute(item)) or
-      (settings.compass and ItemManager.check_is_compass(item))
+   local is_sigils = settings.sigils and ItemManager.check_is_sigil(item)
+   local is_tribute = settings.tribute and ItemManager.check_is_tribute(item)
+   local is_compass = settings.compass and ItemManager.check_is_compass(item)
 
    local is_quest_item = settings.quest_items and ItemManager.check_is_quest_item(item)
    local is_event_item = settings.event_items and CustomItems.event_items[id]
    local is_cinders = settings.cinders and ItemManager.check_is_cinders(item)
    local is_crafting_item = settings.crafting_items and ItemManager.check_is_crafting(item)
-   local is_rune = settings.rune and ItemManager.check_is_rune(item)
+
+   local is_socketable = 
+      (settings.rune and ItemManager.check_is_rune(item)) or
+      (settings.gemstone and ItemManager.check_is_gemstone(item))
+      
    local is_recipe = settings.crafting_items and ItemManager.check_is_recipe(item)
    local is_item_cache = ItemManager.check_is_item_cache(item)
 
@@ -164,6 +178,16 @@ function ItemManager.check_want_item(item, ignore_distance)
       if not Utils.is_sigil_inventory_full() then
          return true
       end
+   elseif is_tribute or is_compass then
+      if not Utils.is_sigil_inventory_full() or
+            Utils.is_lowest_stack_below(
+               get_local_player():get_dungeon_key_items(),
+               id,
+               ItemManager.check_item_stack(item, id),
+               item_info:get_stack_count()
+            ) then
+         return true
+      end
    elseif is_consumable_item then
       -- Consumable inventory check and if have existing stack to loot
       if not Utils.is_consumable_inventory_full() or
@@ -175,7 +199,7 @@ function ItemManager.check_want_item(item, ignore_distance)
             ) then
          return true
       end
-   elseif is_rune then
+   elseif is_socketable then
       -- Socketable inventory check and if have existing stack to loot
       if not Utils.is_socketable_inventory_full() or
             Utils.is_lowest_stack_below(

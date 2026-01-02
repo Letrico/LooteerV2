@@ -19,6 +19,7 @@ local settings = {
    crafting_items = false,
    cinders = false,
    heavenly_sigil = false,
+   gemstone = false,
    boss_items = false,
    rare_elixirs = false,
    advanced_elixirs = false,
@@ -168,6 +169,7 @@ function Settings.update()
       scroll = gui.elements.item_types.scroll_items_toggle:get(),
       event_items = gui.elements.item_types.event_items_toggle:get(),
       heavenly_sigil = gui.elements.item_types.heavenly_sigil_toggle:get(),
+      gemstone = gui.elements.item_types.gemstone_toggle:get(),
 
       -- Debug
       draw_wanted_items = gui.elements.debug.draw_wanted_toggle:get()
