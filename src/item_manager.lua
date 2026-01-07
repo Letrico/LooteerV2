@@ -53,7 +53,7 @@ function ItemManager.check_item_stack(item, id)
    elseif ItemManager.check_is_rune(item) then
       stack = 100
    elseif ItemManager.check_is_tribute(item) then
-      stack = 99
+      stack = 100
    elseif ItemManager.check_is_compass(item) then
       stack = 99
    elseif ItemManager.check_is_gemstone(item) then
@@ -138,6 +138,24 @@ function ItemManager.check_want_item(item, ignore_distance)
    if not ignore_distance and Utils.distance_to(item) >= settings.distance then return false end
    if settings.skip_dropped and #affixes > 0 then return false end
    if loot_manager.is_gold(item) or loot_manager.is_potion(item) then return false end
+   -- Hard block disabled categories
+   if ItemManager.check_is_sigil(item) and not settings.sigils then return false end
+   if ItemManager.check_is_tribute(item) and not settings.tribute then return false end
+   if ItemManager.check_is_compass(item) and not settings.compass then return false end
+   if CustomItems.boss_items[id] and not settings.boss_items then return false end
+   if CustomItems.rare_elixirs[id] and not settings.rare_elixirs then return false end
+   if CustomItems.basic_elixirs[id] and not settings.basic_elixirs then return false end
+   if CustomItems.advanced_elixirs[id] and not settings.advanced_elixirs then return false end
+   if ItemManager.check_is_scroll(item) and not settings.scroll then return false end
+   if ItemManager.check_is_heavenly_sigil(item) and not settings.heavenly_sigil then return false end
+   if CustomItems.event_items[id] and not settings.event_items then return false end
+   if ItemManager.check_is_cinders(item) and not settings.cinders then return false end
+   if ItemManager.check_is_crafting(item) and not settings.crafting_items then return false end
+   if ItemManager.check_is_rune(item) and not settings.rune then return false end
+   if ItemManager.check_is_gemstone(item) and not settings.gemstone then return false end
+   if ItemManager.check_is_recipe(item) and not settings.crafting_items then return false end
+   if ItemManager.check_is_item_cache(item) and not settings.item_cache then return false end
+   if ItemManager.check_is_quest_item(item) and not settings.quest_items then return false end
    
    local is_consumable_item = 
       (settings.boss_items and CustomItems.boss_items[id]) or
@@ -303,6 +321,12 @@ function ItemManager.check_want_item(item, ignore_distance)
       elseif ItemLogic.is_legendary_totem(item) and Settings.get().custom_toggle == true then
          required_ga_count = settings.legendary_totem_ga_count
          foundOn = 'totem'
+      elseif ItemLogic.is_legendary_shield(item) and Settings.get().custom_toggle == true then
+         required_ga_count = settings.legendary_shield_ga_count
+         foundOn = 'shield'
+      elseif ItemLogic.is_unique_shield(item) and Settings.get().custom_toggle == true then
+         required_ga_count = settings.unique_shield_ga_count
+         foundOn = 'uniqueShield'
 
       --Wepeons
       elseif ItemLogic.is_legendary_1h_mace(item) and Settings.get().custom_toggle == true then

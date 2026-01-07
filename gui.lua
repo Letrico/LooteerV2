@@ -1,7 +1,7 @@
 local plugin_label = "Looter (Pirated Edition) "
 local gui = {}
 local options = require("data.gui_options")
-local version = "v1.3.10"
+local version = "v1.3.11"
 
 
 gui.elements = {
@@ -48,7 +48,8 @@ gui.elements = {
       --offhand
          legendary_focus_slider = slider_int:new(0, 3, 2, get_hash(plugin_label .. "_legendary_focus_slider")),
          legendary_totem_slider = slider_int:new(0, 3, 2, get_hash(plugin_label .. "_legendary_totem_slider")),
-      
+         legendary_shield_slider = slider_int:new(0, 3, 2, get_hash(plugin_label .. "_legendary_shield_slider")),
+         unique_shield_slider = slider_int:new(0, 4, 2, get_hash(plugin_label .. "_unique_shield_slider")),
          --weapons
          --1h
          legendary_1h_mace_slider = slider_int:new(0, 3, 2, get_hash(plugin_label .. "_legendary_1h_mace_slider")),
@@ -245,6 +246,10 @@ function gui.render()
                   "Minimum GA's to consider picking up legendary Focuses")
                gui.elements.affix_settings.legendary_totem_slider:render("Legendary Totem GA Count",
                   "Minimum GA's to consider picking up legendary Totems")
+               gui.elements.affix_settings.legendary_shield_slider:render("Legendary Shield GA Count",
+                  "Minimum GA's to consider picking up legendary Shields")
+               gui.elements.affix_settings.unique_shield_slider:render("Unique Shield GA Count",
+                  "Minimum GA's to consider picking up unique Shields")
                gui.elements.affix_settings.offHandsTree:pop()
             end
             gui.elements.affix_settings.weaponsTree:pop()

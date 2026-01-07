@@ -49,6 +49,8 @@ local settings = {
    --offhand
    legendary_focus_ga_count = 0,
    legendary_totem_ga_count = 0,
+   legendary_shield_ga_count = 0,
+   unique_shield_ga_count = 0,
 
    --wepeons
    --1h
@@ -120,6 +122,8 @@ function Settings.update()
       --offhand
       legendary_focus_ga_count = gui.elements.affix_settings.legendary_focus_slider:get(),
       legendary_totem_ga_count = gui.elements.affix_settings.legendary_totem_slider:get(),
+      legendary_shield_ga_count = gui.elements.affix_settings.legendary_shield_slider:get(),
+      unique_shield_ga_count = gui.elements.affix_settings.unique_shield_slider:get(),
 
       --Wepeons Settings
          --1h

@@ -70,6 +70,14 @@ function ItemLogic.is_legendary_amulet(item)
     local item_info = item:get_item_info()
     return item_info:get_rarity() == 5 and item_info:get_skin_name():find("offHandsDruid")
  end
+ function ItemLogic.is_legendary_shield(item)
+    local item_info = item:get_item_info()
+    return item_info:get_rarity() == 5 and item_info:get_skin_name():find("shield")
+ end
+ function ItemLogic.is_unique_shield(item)
+    local item_info = item:get_item_info()
+    return item_info:get_rarity() == 6 and item_info:get_skin_name():find("shield")
+ end
 
 
  --1Handed Wepeons
