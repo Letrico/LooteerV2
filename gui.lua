@@ -1,7 +1,7 @@
 local plugin_label = "Looter (Pirated Edition) "
 local gui = {}
 local options = require("data.gui_options")
-local version = "v1.3.11"
+local version = "v1.3.12"
 
 
 gui.elements = {
@@ -14,7 +14,6 @@ gui.elements = {
       loot_priority_combo = combo_box:new(0, get_hash(plugin_label .. "_loot_priority_combo")), 
       rarity_combo = combo_box:new(0, get_hash(plugin_label .. "_rarity_combo")),
       distance_slider = slider_int:new(1, 30, 2, get_hash(plugin_label .. "_distance_slider")),
-      skip_dropped_toggle = checkbox:new(false, get_hash(plugin_label .. "_skipped_dropped_toggle")),
    },
 
    affix_settings = {
@@ -128,8 +127,6 @@ function gui.render()
       gui.elements.general.rarity_combo:render("Rarity", options.rarities,
          "Minimum Rarity for bot to consider picking up.")
       gui.elements.general.distance_slider:render("Distance", "Distance from the loot to execute pickup")
-      gui.elements.general.skip_dropped_toggle:render("Skip Self Dropped (Equipment only)",
-         "Do you want the bot to not loot items that you dropped yourself?")
       gui.elements.general.loot_priority_combo:render("Loot Priority", {"Closest First", "Best First"},
          "Select the priority for looting items")
       gui.elements.general.tree:pop()

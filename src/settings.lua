@@ -10,7 +10,6 @@ local settings = {
    behavior = 0,
    rarity = 0,
    distance = 2,
-   skip_dropped = false,
    loot_priority = 0,
    ga_count = 0,
    unique_ga_count = 0,
@@ -95,7 +94,6 @@ function Settings.update()
       behavior = gui.elements.general.behavior_combo:get(),
       rarity = gui.elements.general.rarity_combo:get(),
       distance = gui.elements.general.distance_slider:get(),
-      skip_dropped = gui.elements.general.skip_dropped_toggle:get(),
       loot_priority = gui.elements.general.loot_priority_combo:get(),
       
       -- Affix Settings

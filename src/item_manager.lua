@@ -7,7 +7,7 @@ local ItemManager = {}
 
 -- Table to store item type patterns
 local item_type_patterns = {
-   sigil = { "Nightmare_Sigil", "S07_WitcherSigil", "S07_DRLG_Sigil", "S09_Prop_Astaroth_NMD" },
+   sigil = { "Nightmare_Sigil", "S07_WitcherSigil", "S07_DRLG_Sigil", "S09_Prop_Astaroth_NMD", "S12_Prop_Boss_Currency_01" },
    compass = { "BSK_Sigil" },
    tribute = { "Undercity_Tribute" },
    equipment = { "Base", "Amulet", "Ring" },
@@ -136,7 +136,6 @@ function ItemManager.check_want_item(item, ignore_distance)
 
    -- Early return checks
    if not ignore_distance and Utils.distance_to(item) >= settings.distance then return false end
-   if settings.skip_dropped and #affixes > 0 then return false end
    if loot_manager.is_gold(item) or loot_manager.is_potion(item) then return false end
    -- Hard block disabled categories
    if ItemManager.check_is_sigil(item) and not settings.sigils then return false end
