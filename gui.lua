@@ -1,7 +1,7 @@
 local plugin_label = "Looter (Pirated Edition) "
 local gui = {}
 local options = require("data.gui_options")
-local version = "v1.3.12"
+local version = "v1.3.13"
 
 
 gui.elements = {
@@ -102,6 +102,7 @@ gui.elements = {
       cinders_toggle = checkbox:new(false, get_hash(plugin_label .. "_cinders_toggle")),
       heavenly_sigil_toggle = checkbox:new(false, get_hash(plugin_label .. "_heavenly_sigil_toggle")),
       gemstone_toggle = checkbox:new(false, get_hash(plugin_label .. "_gemstone_toggle")),
+      item_cache_toggle = checkbox:new(false, get_hash(plugin_label .. "_item_cache_toggle")),
    },
 
    debug = {
@@ -276,6 +277,7 @@ function gui.render()
       gui.elements.item_types.cinders_toggle:render("Cinders", "Do you want to pickup Cinders?")
       gui.elements.item_types.heavenly_sigil_toggle:render("Heavenly Sigil", "Do you want to pickup Heavenly Sigil?")
       gui.elements.item_types.gemstone_toggle:render("Gemstones", "Do you want to pickup Gemstones?")
+      gui.elements.item_types.item_cache_toggle:render("Item Caches", "Do you want to item caches?")
       gui.elements.item_types.tree:pop()
    end
  

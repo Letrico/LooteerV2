@@ -29,6 +29,7 @@ local settings = {
    tribute = false,
    scroll = false,
    event_items = true,
+   item_cache = true,
    --jewerly
    legendary_amulet_ga_count = 0,
    legendary_ring_ga_count = 0,
@@ -172,6 +173,7 @@ function Settings.update()
       event_items = gui.elements.item_types.event_items_toggle:get(),
       heavenly_sigil = gui.elements.item_types.heavenly_sigil_toggle:get(),
       gemstone = gui.elements.item_types.gemstone_toggle:get(),
+      item_cache = gui.elements.item_types.item_cache_toggle:get(),
 
       -- Debug
       draw_wanted_items = gui.elements.debug.draw_wanted_toggle:get()
